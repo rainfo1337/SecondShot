@@ -33,7 +33,8 @@ init -100 python:
                 raise IllegalModLocation
 
 init python:
-    splash_messages = ["Незачто -- пишется слитно.", "21 августа 2022 года ничего не произошло"]
+    splash_message_default = "Душ не яйца, помыл баню -- до свиданья!"
+    splash_messages = ["Незачто -- пишется слитно."]
     def recolorize(path, blackCol="#ffbde1", whiteCol="#ffe6f4", contr=1.29):
         return im.MatrixColor(im.MatrixColor(im.MatrixColor(path, im.matrix.desaturate() * im.matrix.contrast(contr)), 
             im.matrix.colorize("#00f", "#fff") * im.matrix.saturation(120)), im.matrix.desaturate() * im.matrix.colorize(blackCol, whiteCol))
@@ -164,7 +165,7 @@ label splashscreen:
                 currentuser = user
 
     if not persistent.first_run:
-        $ quick_menu = False
+        $ quick_menu = True
         scene white
         pause 0.5
         scene tos
