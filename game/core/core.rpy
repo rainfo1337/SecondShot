@@ -155,7 +155,7 @@ image warning:
 image tos = "bg/warning.png"
 image tos2 = "bg/warning2.png"
 
-default persistent.first_run = False
+default persistent.first_run = True
 
 label splashscreen:
     python:
