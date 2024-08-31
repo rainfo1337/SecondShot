@@ -14,3 +14,4 @@ game/core/poems_special.rpyc
 game/core/script-poemgame.rpyc
 game/core/script-poemresponses.rpyc
 game/saves/navigation.json
+/game/saves
