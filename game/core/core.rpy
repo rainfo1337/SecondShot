@@ -164,8 +164,8 @@ label splashscreen:
             if user:
                 currentuser = user
 
-    if not persistent.first_run:
-        $ quick_menu = True
+    if persistent.first_run:
+        $ quick_menu = False
         scene white
         pause 0.5
         scene tos
@@ -183,7 +183,7 @@ label splashscreen:
             "Не подтверждаю":
                 $ sys.exit()
 
-        $ persistent.first_run = True
+        $ persistent.first_run = False
         scene tos2
         with Dissolve(1.5)
         pause 1.0
