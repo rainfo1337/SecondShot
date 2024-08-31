@@ -9,3 +9,8 @@ game/core/definitions.rpyc
 game/core/core.rpyc
 game/core/transforms.rpyc
 /game/cache
+game/core/poems.rpyc
+game/core/poems_special.rpyc
+game/core/script-poemgame.rpyc
+game/core/script-poemresponses.rpyc
+game/saves/navigation.json
