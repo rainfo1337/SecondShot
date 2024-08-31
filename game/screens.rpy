@@ -369,7 +369,7 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.button_text_properties("navigation_button")
-    font "gui/font/SourceSansPro-Black.ttf"
+    font "gui/font/Kanit.ttf"
     color "#fff"
     outlines [(4, text_outline_color, 0, 0), (2, text_outline_color, 2, 2)]
     hover_outlines [(4, "#fac", 0, 0), (2, "#fac", 2, 2)]
@@ -532,7 +532,7 @@ style game_menu_label:
     ysize 120
 
 style game_menu_label_text:
-    font "gui/font/SourceSansPro-Black.ttf"
+    font "gui/font/Kanit.ttf"
     size gui.title_text_size
     color "#fff"
     outlines [(6, text_outline_color, 0, 0), (3, text_outline_color, 2, 2)]
@@ -815,7 +815,7 @@ style pref_label:
     bottom_margin 2
 
 style pref_label_text:
-    font "gui/font/SourceSansPro-Black.ttf"
+    font "gui/font/Kanit.ttf"
     size 24
     color "#fff"
     outlines [(3, "#b59", 0, 0), (1, "#b59", 1, 1)]
@@ -833,7 +833,7 @@ style radio_button:
 
 style radio_button_text:
     properties gui.button_text_properties("radio_button")
-    font "gui/font/Aller_Ru.ttf"
+    font "gui/font/LibertinusSans-Regular.otf"
     outlines []
 
 style check_vbox:
@@ -845,7 +845,7 @@ style check_button:
 
 style check_button_text:
     properties gui.button_text_properties("check_button")
-    font "gui/font/Aller_Ru.ttf"
+    font "gui/font/LibertinusSans-Regular.otf"
     outlines []
 
 style slider_slider:
