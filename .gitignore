@@ -1,0 +1,11 @@
+
+traceback.txt
+log.txt
+game/script.rpyc
+game/options.rpyc
+game/screens.rpyc
+game/gui.rpyc
+game/core/definitions.rpyc
+game/core/core.rpyc
+game/core/transforms.rpyc
+/game/cache
