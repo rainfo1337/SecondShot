@@ -76,10 +76,10 @@ image menu_fade:
 image menu_art_y:
     subpixel True
     "gui/menu_art_y.png"
-    xcenter 600
-    ycenter 335
+    xcenter 750
+    ycenter 695
     zoom 0.60
-    menu_art_move(0.54, 600, 0.60)
+    menu_art_move(0.54, 600, 1.12)
 
 image menu_nav:
     "gui/overlay/main_menu.png"

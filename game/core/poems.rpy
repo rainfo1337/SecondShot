@@ -22,10 +22,10 @@ init 1 python:
             self.separate_title_from_text = separate_title_from_text
             self.music = music
     
-    author_s = Author("sayori", music=audio.tsayori)
-    author_m = Author("monika", music=audio.tmonika)
-    author_n = Author("natsuki", music=audio.tnatsuki)
-    author_y = Author("yuri", music=audio.tyuri)
+    author_s = Author("sayori")
+    author_m = Author("monika")
+    author_n = Author("natsuki")
+    author_y = Author("yuri")
 
     class Poem(renpy.text.text.Text):
         """
@@ -122,7 +122,7 @@ init 1 python:
 
         return music
 
-    def show_poem(poem, paper_sound=audio.page_turn, music=True, from_current=True, revert_music=True):
+    def show_poem(poem, paper_sound="audio/sfx/page_turn.ogg", music=True, from_current=True, revert_music=True):
         """
         Call this function to show a poem from a label.
 
