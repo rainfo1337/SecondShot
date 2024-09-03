@@ -1,6 +1,9 @@
 ﻿
 translate None strings:
 
+    old "empty slot"
+    new "пустой слот"
+
     # renpy/common/00accessibility.rpy:28
     old "Self-voicing disabled."
     new "Синтезатор речи отключён."
