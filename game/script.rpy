@@ -16,3 +16,4 @@ label start:
     #         call bad
     #     else:
     #         call good
+    return
