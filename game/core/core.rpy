@@ -94,9 +94,6 @@ transform menu_nav_move:
 
 transform menu_fadeout:
     easeout 0.75 alpha 0
-    time 2.481
-    alpha 0.4
-    linear 0.5 alpha 0
 
 transform menu_art_move(z, x, z2):
     subpixel True
