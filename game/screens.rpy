@@ -1,5 +1,5 @@
 init offset = -1
-define -2 text_outline_color = "#b59"
+define -2 text_outline_color = "#4b4248"
 
 style default:
     font gui.default_font
@@ -372,8 +372,8 @@ style navigation_button_text:
     font "gui/font/Inconsolata-LGC.otf"
     color "#fff"
     outlines [(4, text_outline_color, 0, 0), (2, text_outline_color, 2, 2)]
-    hover_outlines [(4, "#fac", 0, 0), (2, "#fac", 2, 2)]
-    insensitive_outlines [(4, "#fce", 0, 0), (2, "#fce", 2, 2)]
+    hover_outlines [(4, "#423239", 0, 0), (2, "#423239", 2, 2)]
+    insensitive_outlines [(4, "#2b2b2b", 0, 0), (2, "#2b2b2b", 2, 2)]
 
 screen main_menu():
     tag menu
@@ -818,7 +818,7 @@ style pref_label_text:
     font "gui/font/Inconsolata-LGC.otf"
     size 24
     color "#fff"
-    outlines [(3, "#b59", 0, 0), (1, "#b59", 1, 1)]
+    outlines [(3, "#423239", 0, 0), (1, "#423239", 1, 1)]
     yalign 1.0
 
 style pref_vbox:

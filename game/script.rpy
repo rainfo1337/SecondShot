@@ -1,4 +1,6 @@
 label start:
+    "Пися попа бобра"
+    mc "ракета бомба петарда"
     # call prologue
     # call d0
     # call d1
