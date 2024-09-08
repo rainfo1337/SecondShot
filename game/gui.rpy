@@ -1,7 +1,7 @@
 init -2 python:
     gui.init(1280, 720)
-define -2 gui.hover_sound = "audio/gui/sfx/hover.ogg"
-define -2 gui.activate_sound = "audio/gui/sfx/select.ogg"
+define -2 gui.hover_sound = "audio/gui/sfx/hover.mp3"
+define -2 gui.activate_sound = "audio/gui/sfx/select.mp3"
 define -2 gui.activate_sound_glitch = "audio/gui/sfx/select_glitch.ogg"
 define -2 gui.accent_color = '#ffffff'
 define -2 gui.idle_color = '#413d3d'
