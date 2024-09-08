@@ -58,7 +58,6 @@ image menu_logo:
     xcenter 240
     ycenter 120
     zoom 0.60
-    menu_logo_move()
 
 image menu_bg:
     Movie(play="gui/menu_bg.webm")
@@ -76,12 +75,10 @@ image menu_art_y:
     "gui/menu_art_y.png"
     xcenter 750
     ycenter 695
-    zoom 0.60
-    menu_art_move(0.54, 600, 1.12)
+    zoom 1.12
 
 image menu_nav:
     "gui/overlay/main_menu.png"
-    menu_nav_move()
 
 transform menu_logo_move:
     subpixel True
