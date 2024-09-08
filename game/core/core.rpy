@@ -61,13 +61,11 @@ image menu_logo:
     menu_logo_move()
 
 image menu_bg:
-    "gui/menu_bg.png"
-    menu_bg_move()
+    Movie(play="gui/menu_bg.webm")
 
 image game_menu_bg:
     topleft
-    "gui/menu_bg.png"
-    menu_bg_loop()
+    Movie(play="gui/menu_bg.webm")
 
 image menu_fade:
     "white"
@@ -84,26 +82,6 @@ image menu_art_y:
 image menu_nav:
     "gui/overlay/main_menu.png"
     menu_nav_move()
-
-transform menu_bg_move:
-    subpixel True
-    topleft
-    parallel:
-        xoffset 0 yoffset 0
-        linear 3.0 xoffset -100 yoffset -100
-        repeat
-    parallel:
-        ypos 0
-        time 0.65
-        ease_cubic 2.5 ypos -500
-
-transform menu_bg_loop:
-    subpixel True
-    topleft
-    parallel:
-        xoffset 0 yoffset 0
-        linear 3.0 xoffset -100 yoffset -100
-        repeat
 
 transform menu_logo_move:
     subpixel True
