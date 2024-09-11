@@ -178,7 +178,7 @@ label splashscreen:
     show white
     $ persistent.ghost_menu = False
     $ splash_message = splash_message_default
-    $ config.main_menu_music = None
+    $ config.main_menu_music = 'audio/gui/sfx/to-the-moon.mp3'
     $ renpy.music.play(config.main_menu_music)
     show intro with Dissolve(0.5, alpha=True)
     $ pause(2.5)
@@ -198,7 +198,7 @@ label warningscreen:
     pause 3.0
 
 label before_main_menu:
-    $ config.main_menu_music = None
+    $ config.main_menu_music = 'audio/gui/sfx/to-the-moon.mp3'
     return
 
 label quit:
