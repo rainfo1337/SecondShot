@@ -1,6 +1,6 @@
 label start:
     "Пися попа бобра"
-    mc "ракета бомба петарда"
+    na "ракета бомба петарда"
     # call prologue
     # call d0
     # call d1
@@ -14,7 +14,7 @@ label start:
     #     call d6
     #     call d7
     #     call d8
-    #     if wanted.scale >= 4:
+    #     if wanted.scale >= 3:
     #         call bad
     #     else:
     #         call good

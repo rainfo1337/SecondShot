@@ -359,22 +359,6 @@ init python:
         renpy.pause(time)
         _windows_hidden = False
 
-screen invert(length, delay=0.0):
-    add Invert(delay) size (1280, 720)
-    timer delay action PauseAudio("music")
-    timer delay action Play("sound", "sfx/glitch1.ogg")
-    timer length + delay action Hide("invert")
-    on "show" action Function(hide_windows_enabled, enabled=False)
-    on "hide" action PauseAudio("music", False)
-    on "hide" action Stop("sound")
-    on "hide" action Function(hide_windows_enabled, enabled=True)
-
-screen tear(number=10, offtimeMult=1, ontimeMult=1, offsetMin=0, offsetMax=50, srf=None):
-    zorder 150
-    add Tear(number, offtimeMult, ontimeMult, offsetMin, offsetMax, srf) size (1280,720)
-    on "show" action Function(hide_windows_enabled, enabled=False)
-    on "hide" action Function(hide_windows_enabled, enabled=True)
-
 image m_rectstatic:
     RectStatic(Solid("#000"), 32, 32, 32).sm
     pos (0, 0)
@@ -386,91 +370,6 @@ image m_rectstatic2:
 image m_rectstatic3:
     RectStatic(im.FactorScale(im.Crop("gui/menu_art_s.png", (100, 100, 64, 64)), 0.5), 2, 32, 32).sm
 
-image blood_particle_drip:
-    "gui/blood_drop.png"
-    yzoom 0 yanchor 0.2 subpixel True
-    linear 10 yzoom 8
-
-image bsod_1:
-    "images/bg/bsod.png"
-    size (1280,720)
-image bsod_2:
-    "black"
-    0.1
-    yoffset 250
-    0.1
-    yoffset 500
-    0.1
-    yoffset 750
-
-image bsod = LiveComposite((1280, 720), (0, 0), "bsod_1", (0, 0), "bsod_2")
-
-image veins:
-    AnimatedMask("images/bg/veinmask.png", "images/bg/veinmask.png", "images/bg/veinmaskb.png", 0.15, 16, moving=False, speed=10.0, frequency=0.25, amount=0.1)
-    xanchor 0.05 zoom 1.10
-    xpos -5
-    subpixel True
-    parallel:
-        ease 2.0 xpos 5
-        ease 1.0 xpos 0
-        ease 1.0 xpos 5
-        ease 2.0 xpos -5
-        ease 1.0 xpos 0
-        ease 1.0 xpos -5
-        repeat
-    parallel:
-        choice:
-            0.6
-        choice:
-            0.2
-        choice:
-            0.3
-        choice:
-            0.4
-        choice:
-            0.5
-        pass
-        choice:
-            xoffset 0
-        choice:
-            xoffset 1
-        choice:
-            xoffset 2
-        choice:
-            xoffset -1
-        choice:
-            xoffset -2
-        repeat
-
-image blood_particle:
-    subpixel True
-    "gui/blood_drop.png"
-    zoom 0.75
-    alpha 0.75
-    choice:
-        linear 0.25 zoom 0
-    choice:
-        linear 0.35 zoom 0
-    choice:
-        linear 0.35 zoom 0
-    choice:
-        linear 0.55 zoom 0
-
-image blood:
-    size (1, 1)
-    truecenter
-    Blood("blood_particle").sm
-
-image blood_eye:
-    size (1, 1)
-    truecenter
-    Blood("blood_particle", dripChance=0.5, numSquirts=0).sm
-
-image blood_eye2:
-    size (1, 1)
-    truecenter
-    Blood("blood_particle", dripChance=0.005, numSquirts=0, burstSize=0).sm
-
 image white:
     "#FFF"
 
@@ -478,7 +377,7 @@ image black:
     "#000"
 
 define narrator = Character(ctc="ctc", ctc_position="fixed")
-define mc = DynamicCharacter('player', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
+define na = Character('Наоки', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed") # фамилия Накамура, ГГ
 define s = Character('Сайори', image='sayori', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 define m = Character('Моника', image='monika', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 define n = Character('Нацуки', image='natsuki', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
@@ -486,10 +385,7 @@ define y = Character('Юри', image='yuri', what_prefix='"', what_suffix='"', c
 
 define _dismiss_pause = config.developer
 
-default persistent.playername = ""
-default player = persistent.playername
 default persistent.playthrough = 0
-default persistent.yuri_kill = 0
 default persistent.seen_eyes = None
 default persistent.seen_sticker = None
 default persistent.ghost_menu = None
@@ -505,8 +401,6 @@ default persistent.first_poem = None
 default persistent.seen_colors_poem = None
 default persistent.monika_back = None
 
-default in_sayori_kill = None
-default in_yuri_kill = None
 default anticheat = 0
 define config.mouse = None
 default allow_skipping = True

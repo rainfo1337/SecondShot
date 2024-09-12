@@ -49,25 +49,3 @@ init python:
             return (width, float(width) / (float(config.screen_width) / float(config.screen_height)))
         else:
             return (float(height) * (float(config.screen_width) / float(config.screen_height)), height)
-
-init python:
-    build.package("DDLCUniversal", 'zip', 'windows linux mac renpy mod',
-        description="DDLC Universal by Tetyastan")
-
-    build.archive("scripts", 'mod')
-    build.archive("audio", 'mod')
-    build.archive("images", 'mod')
-
-    build.renpy_patterns.remove(('renpy.py', ['all']))
-    build.classify_renpy("renpy.py", "renpy all")
-    
-    build.early_base_patterns.remove(('*.sh', None))
-    build.classify("game/**.rpyc", "scripts all")
-    build.classify("game/images/**", "images all")
-    build.classify("game/gui/**", "images all")
-    build.classify("game/audio/**", "audio all")
-    build.classify("game/core/**", "scripts all")
-
-    build.classify_renpy("renpy/WOW", "renpy all")
-
-    build.include_old_themes = False

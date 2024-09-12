@@ -315,15 +315,6 @@ style quick_button_text:
     properties gui.button_text_properties("quick_button")
     outlines []
 
-init python:
-    def FinishEnterName(launchGame=True):
-        if not player: return
-        persistent.playername = player
-        renpy.save_persistent()
-        renpy.hide_screen("name_input")
-        if launchGame:
-            renpy.jump_out_of_context("start")
-
 screen navigation():
 
     vbox:
@@ -354,8 +345,6 @@ screen navigation():
 
             if renpy.variant("pc"):
                 textbutton _("Выйти") action Quit(confirm=not main_menu)
-        else:
-            timer 1.75 action Start("autoload_yurikill")
 
 
 style navigation_button is gui_button
@@ -963,13 +952,6 @@ screen dialog(message, ok_action):
                 spacing 100
                 textbutton _("ОК") action ok_action
 
-image confirm_glitch:
-    "gui/overlay/confirm_glitch.png"
-    pause 0.02
-    "gui/overlay/confirm_glitch2.png"
-    pause 0.02
-    repeat
-
 screen confirm(message, yes_action, no_action):
     modal True
     zorder 200
@@ -1052,9 +1034,6 @@ style skip_frame:
 
 style skip_text:
     size gui.notify_text_size
-
-style skip_triangle:
-    font "DejaVuSans.ttf"
 
 screen notify(message):
 

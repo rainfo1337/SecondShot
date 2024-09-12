@@ -2,7 +2,6 @@ init -2 python:
     gui.init(1280, 720)
 define -2 gui.hover_sound = "audio/gui/sfx/hover.mp3"
 define -2 gui.activate_sound = "audio/gui/sfx/select.mp3"
-define -2 gui.activate_sound_glitch = "audio/gui/sfx/select_glitch.ogg"
 define -2 gui.accent_color = '#ffffff'
 define -2 gui.idle_color = '#413d3d'
 define -2 gui.idle_small_color = '#333'
@@ -63,7 +62,7 @@ define gui.choice_button_text_font = gui.default_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
 define gui.choice_button_text_idle_color = "#000"
-define gui.choice_button_text_hover_color = "#fa9"
+define gui.choice_button_text_hover_color = "#ffccff"
 define gui.slot_button_width = 276
 define gui.slot_button_height = 206
 define gui.slot_button_borders = Borders(10, 10, 10, 10)
