@@ -1,4 +1,4 @@
-transform tcommon(x=640, z=0.80):
+transform tcommon(x=640, z=0.40):
     yanchor 1.0 subpixel True
     on show:
         ypos 1.03
@@ -13,10 +13,10 @@ transform tcommon(x=640, z=0.80):
         parallel:
             easein .15 yoffset 0 ypos 1.03
 
-transform tinstant(x=640, z=0.80):
+transform tinstant(x=640, z=0.40):
     xcenter x yoffset 0 zoom z*1.00 alpha 1.00 yanchor 1.0 ypos 1.03
 
-transform focus(x=640, z=0.80):
+transform focus(x=640, z=0.40):
     yanchor 1.0 ypos 1.03 subpixel True
     on show:
 
@@ -31,26 +31,26 @@ transform focus(x=640, z=0.80):
         parallel:
             easein .15 yoffset 0
 
-transform sink(x=640, z=0.80):
+transform sink(x=640, z=0.40):
     xcenter x yoffset 0 yanchor 1.0 ypos 1.03 zoom z*1.00 alpha 1.00 subpixel True
     easein .5 ypos 1.06
 
-transform hop(x=640, z=0.80):
+transform hop(x=640, z=0.40):
     xcenter x yoffset 0 yanchor 1.0 ypos 1.03 zoom z*1.00 alpha 1.00 subpixel True
     easein .1 yoffset -20
     easeout .1 yoffset 0
 
-transform hopfocus(x=640, z=0.80):
+transform hopfocus(x=640, z=0.40):
     xcenter x yoffset 0 yanchor 1.0 ypos 1.03 zoom z*1.05 alpha 1.00 subpixel True
     easein .1 yoffset -21
     easeout .1 yoffset 0
 
-transform dip(x=640, z=0.80):
+transform dip(x=640, z=0.40):
     xcenter x yoffset 0 yanchor 1.0 ypos 1.03 zoom z*1.00 alpha 1.00 subpixel True
     easein .25 yoffset 25
     easeout .25 yoffset 0
 
-transform panic(x=640, z=0.80):
+transform panic(x=640, z=0.40):
     xcenter x yoffset 0 yanchor 1.0 ypos 1.03 zoom z*1.00 alpha 1.00 subpixel True
     parallel:
         ease 1.2 yoffset 25
@@ -62,15 +62,15 @@ transform panic(x=640, z=0.80):
         easeout .3 xoffset 0
         repeat
 
-transform leftin(x=640, z=0.80):
+transform leftin(x=640, z=0.40):
     xcenter -300 yoffset 0 yanchor 1.0 ypos 1.03 zoom z*1.00 alpha 1.00 subpixel True
     easein .25 xcenter x
 
-transform rightin(x=640, z=0.80):
+transform rightin(x=640, z=0.40):
     xcenter 2000 yoffset 0 yanchor 1.0 ypos 1.03 zoom z*1.00 alpha 1.00 subpixel True
     easein .25 xcenter x
 
-transform thide(z=0.80):
+transform thide(z=0.40):
     subpixel True
     transform_anchor True
     on hide:
@@ -276,7 +276,7 @@ transform r22:
 transform r11:
     rightin(640)
 
-transform face(z=0.80, y=500):
+transform face(z=0.40, y=500):
     subpixel True
     xcenter 640
     yanchor 1.0 ypos 1.03
