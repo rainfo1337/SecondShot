@@ -1,4 +1,3 @@
-# paths system by _kamiya and Elysium Team.
 init -200 python:
 
     from multipledispatch import dispatch

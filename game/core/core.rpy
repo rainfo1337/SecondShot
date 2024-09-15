@@ -111,7 +111,11 @@ image intro:
     truecenter
     "white"
     0.5
-    "gui/elysium.png" with Dissolve(0.5, alpha=True)
+    "gui/rgsr.webp" with Dissolve(0.5, alpha=True)
+    2.5
+    "white" with Dissolve(0.5, alpha=True)
+    0.5
+    "gui/sec&.webp" with Dissolve(0.5, alpha=True)
     2.5
     "white" with Dissolve(0.5, alpha=True)
     0.5
@@ -181,7 +185,7 @@ label splashscreen:
     $ config.main_menu_music = 'audio/gui/sfx/to-the-moon.mp3'
     $ renpy.music.play(config.main_menu_music)
     show intro with Dissolve(0.5, alpha=True)
-    $ pause(2.5)
+    $ pause(5.0)
     hide intro with Dissolve(0.5, alpha=True)
     if renpy.random.randint(0, 3) == 0:
         $ splash_message = renpy.random.choice(splash_messages)
