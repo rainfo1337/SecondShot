@@ -33,12 +33,6 @@ init -100 python:
                 raise IllegalModLocation
 
 init python:
-    splash_message_default = "Душ не яйца, помыл баню -- до свиданья!"
-    splash_messages = ["Незачто -- пишется слитно."]
-    def recolorize(path, blackCol="#ffbde1", whiteCol="#ffe6f4", contr=1.29):
-        return im.MatrixColor(im.MatrixColor(im.MatrixColor(path, im.matrix.desaturate() * im.matrix.contrast(contr)), 
-            im.matrix.colorize("#00f", "#fff") * im.matrix.saturation(120)), im.matrix.desaturate() * im.matrix.colorize(blackCol, whiteCol))
-
     def process_check(stream_list):
         if not renpy.windows:
             for index, process in enumerate(stream_list):
@@ -114,11 +108,6 @@ image intro:
     "gui/rgsr.webp" with Dissolve(0.5, alpha=True)
     2.5
     "white" with Dissolve(0.5, alpha=True)
-    0.5
-    "gui/sec&.webp" with Dissolve(0.5, alpha=True)
-    2.5
-    "white" with Dissolve(0.5, alpha=True)
-    0.5
 
 image warning:
     truecenter
@@ -181,19 +170,13 @@ label splashscreen:
 
     show white
     $ persistent.ghost_menu = False
-    $ splash_message = splash_message_default
     $ config.main_menu_music = 'audio/gui/sfx/to-the-moon.mp3'
     $ renpy.music.play(config.main_menu_music)
     show intro with Dissolve(0.5, alpha=True)
-    $ pause(5.0)
+    $ pause(2.5)
     hide intro with Dissolve(0.5, alpha=True)
-    if renpy.random.randint(0, 3) == 0:
-        $ splash_message = renpy.random.choice(splash_messages)
-    show splash_warning "[splash_message]" with Dissolve(0.5, alpha=True)
-    $ pause(1.5)
-    hide splash_warning with Dissolve(0.5, alpha=True)
-    $ pause(0.5)
     $ config.allow_skipping = True
+    $ quick_menu = True
     return
 
 label warningscreen:
