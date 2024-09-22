@@ -373,7 +373,6 @@ screen main_menu():
     frame
     use navigation
     add "menu_logo"
-    add "menu_fade"
 
     if gui.show_name:
         vbox:
@@ -382,6 +381,8 @@ screen main_menu():
 
             text "[config.version]":
                 style "main_menu_version"
+
+    add "menu_fade"
 
     key "K_ESCAPE" action Quit(confirm=False)
 
