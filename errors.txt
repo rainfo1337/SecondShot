@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/layerdImages/natsuki.rpy", line 38: Line is indented, but the preceding group statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    attribute nobl default null
+File "game/screens.rpy", line 715: Line is indented, but the preceding bar statement does not expect a block. Please check this line's indentation.
+    hbox:
     ^
 
-Ren'Py Version: Ren'Py 8.2.0.24012702
-Sat Sep 14 20:15:02 2024
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Tue Oct  1 15:35:01 2024

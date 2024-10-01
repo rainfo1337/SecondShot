@@ -30,7 +30,7 @@ style splash_text:
 
 style poemgame_text:
     yalign 0.5
-    font "gui/font/Halogen.ttf"
+    font "gui/font/BordersDivideButHeartsShall.ttf"
     size 30
     color "#000"
     outlines []
@@ -300,7 +300,6 @@ screen quick_menu():
 
             textbutton _("История") action ShowMenu('history')
             textbutton _("Пропуск") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Авто") action Preference("auto-forward", "toggle")
             textbutton _("Сохранить") action ShowMenu('save')
             textbutton _("Загрузить") action ShowMenu('load')
             textbutton _("Настройки") action ShowMenu('preferences')
@@ -675,6 +674,8 @@ style viewframe_text is confirm_prompt_text:
     size 20
     yalign 0.7
 
+default persistent.autoskip_preference = False
+
 screen ddlc_preferences():
     hbox:
         box_wrap True
@@ -692,6 +693,7 @@ screen ddlc_preferences():
             label _("Пропускать")
             textbutton _("Непрочитанное") action Preference("skip", "toggle")
             textbutton _("После выборов") action Preference("after choices", "toggle")
+            textbutton _("В авто-режиме") action Preference("auto-forward", "toggle")
     
     null height (4 * gui.pref_spacing)
 
@@ -711,7 +713,7 @@ screen ddlc_preferences():
             bar value FieldValue(_preferences, "text_cps", range=180, max_is_zero=False, style="slider", offset=20)
 
             hbox:
-                label _("Автопропуск")
+                label _("Скорость авто-режима")
                 
                 null width 5
                 
@@ -856,7 +858,7 @@ style name_label is pref_label
 style name_label_text is pref_label_text
 
 style name_text:
-    font "gui/font/Halogen.ttf"
+    font "gui/font/Inconsolata-LGC.otf"
     size 24
     color gui.idle_color
     outlines []

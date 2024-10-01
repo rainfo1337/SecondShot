@@ -382,6 +382,12 @@ define s = Character('Сайори', image='sayori', what_prefix='"', what_suffi
 define m = Character('Моника', image='monika', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 define n = Character('Нацуки', image='natsuki', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 define y = Character('Юри', image='yuri', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
+define f = Character('Фёдор', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
+define p = Character('Анархо', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
+define sk = Character('Скитов', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
+define sh = Character('Шерлок', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
+define c = Character('Совок', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
+define h = Character('Чара', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 
 define _dismiss_pause = config.developer
 

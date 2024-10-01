@@ -5,3 +5,7 @@ log.txt
 game/saves/navigation.json
 /game/saves
 *.rpyc
+/game/layerdImages
+game/.vscode/settings.json
+game/tl/None/common.rpymc
+errors.txt
