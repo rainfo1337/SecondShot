@@ -62,7 +62,7 @@ image game_menu_bg:
 
 image menu_fade:
     "white"
-    menu_fadeout()
+    menu_fadeout
 
 image menu_art_y:
     subpixel True

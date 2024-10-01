@@ -712,7 +712,7 @@ screen ddlc_preferences():
 
             bar value FieldValue(_preferences, "text_cps", range=180, max_is_zero=False, style="slider", offset=20)
 
-            if preferences.afm_enable == True:
+            if preferences.afm_enable:
                 hbox:
                     label _("Скорость авто-режима")
                 
