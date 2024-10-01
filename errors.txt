@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 715: Line is indented, but the preceding bar statement does not expect a block. Please check this line's indentation.
-    hbox:
-    ^
+File "game/screens.rpy", line 716: The has statement is not allowed here.
+    has hbox:
+       ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Oct  1 15:35:01 2024
+Tue Oct  1 17:42:42 2024

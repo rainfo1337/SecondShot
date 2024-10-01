@@ -674,7 +674,7 @@ style viewframe_text is confirm_prompt_text:
     size 20
     yalign 0.7
 
-default persistent.autoskip_preference = False
+default preferences.afm_enable = False
 
 screen ddlc_preferences():
     hbox:
@@ -712,14 +712,15 @@ screen ddlc_preferences():
 
             bar value FieldValue(_preferences, "text_cps", range=180, max_is_zero=False, style="slider", offset=20)
 
-            hbox:
-                label _("Скорость авто-режима")
+            if preferences.afm_enable == True:
+                hbox:
+                    label _("Скорость авто-режима")
                 
-                null width 5
+                    null width 5
                 
-                text str(round(preferences.afm_time)) style "value_text"
+                    text str(round(preferences.afm_time)) style "value_text"
 
-            bar value Preference("auto-forward time")
+                bar value Preference("auto-forward time")
 
         vbox:
             
