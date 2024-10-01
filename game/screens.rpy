@@ -302,6 +302,7 @@ screen quick_menu():
             textbutton _("Пропуск") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Сохранить") action ShowMenu('save')
             textbutton _("Загрузить") action ShowMenu('load')
+            textbutton _("Словарь") action ShowMenu('glossary')
             textbutton _("Настройки") action ShowMenu('preferences')
 
 default quick_menu = True
@@ -338,7 +339,9 @@ screen navigation():
             textbutton _("Загрузить") action [ShowMenu("load"), SensitiveIf(renpy.get_screen("load") == None)]
 
             if not main_menu:
+                textbutton _("Словарь") action [ShowMenu("glossary"), SensitiveIf(renpy.get_screen("пдщыыфкн") == None)]
                 textbutton _("Главное меню") action MainMenu()
+
 
             textbutton _("Настройки") action [ShowMenu("preferences"), SensitiveIf(renpy.get_screen("preferences") == None)]
 
@@ -712,7 +715,7 @@ screen ddlc_preferences():
 
             bar value FieldValue(_preferences, "text_cps", range=180, max_is_zero=False, style="slider", offset=20)
 
-            if preferences.afm_enable:
+            if preferences.afm_enable == True:
                 hbox:
                     label _("Скорость авто-режима")
                 
@@ -869,6 +872,28 @@ style value_text:
     color "#000"
     outlines []
     yalign 0.65
+
+default glossary_list = dict()
+
+screen glossary:
+    tag menu
+    
+    predict False
+
+    use game_menu(_("Словарь"), scroll=("vpgrid" if gui.history_height else "viewport")):
+        if glossary_list:
+            for gl_name, gl_desc in glossary_list.items():
+                vbox:
+                    spacing 15
+                hbox:
+                    text gl_name
+                    null width 25
+                    text gl_desc
+        else:
+            vbox:
+                text "Словарь пуст."
+
+# так добавляются слова в словарь / $ glossary_list.update({"Булки": "Мягкие и хрустящие, а главное - французские и хороши к чаю"})
 
 screen history():
     tag menu

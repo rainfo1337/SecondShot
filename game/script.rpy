@@ -1,6 +1,7 @@
 label start:
     "Пися попа бобра"
-    na "ракета бомба петарда"
+    $ glossary_list.update({"Булки": "Мягкие и хрустящие, а главное - французские и хороши к чаю"})
+    na "ракета бомба петарда {a=showmenu:glossary}булка{/a}"
     # call prologue
     # call d0
     # call d1
