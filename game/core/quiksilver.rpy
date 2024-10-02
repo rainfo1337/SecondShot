@@ -1,6 +1,6 @@
 init:
     transform buttonZoom:
-        zoom 0.3
+        zoom 0.1
 
 #трусториёбан
 image quick button story idle = im.MatrixColor("gui/quickmenu/truestoryepta.png",im.matrix.colorize("#fff", "#000"))
