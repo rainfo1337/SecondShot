@@ -1,6 +1,29 @@
+# "position very interesting position" - levi rozeman
 init:
-    transform buttonZoom:
-        zoom 0.1
+    transform buttonStory:
+        zoom 0.2
+        xpos 300
+        ypos 675
+    transform buttonSkip:
+        zoom 0.2
+        xpos 400
+        ypos 675
+    transform buttonSave:
+        zoom 0.2
+        xpos 500
+        ypos 675
+    transform buttonLoad:
+        zoom 0.2
+        xpos 600
+        ypos 675
+    transform buttonKnigga:
+        zoom 0.2
+        xpos 700
+        ypos 675
+    transform buttonOptions:
+        zoom 0.2
+        xpos 800
+        ypos 675
 
 #трусториёбан
 image quick button story idle = im.MatrixColor("gui/quickmenu/truestoryepta.png",im.matrix.colorize("#fff", "#000"))
@@ -31,16 +54,16 @@ image quick button load hover = im.MatrixColor("gui/quickmenu/loadepta.png",im.m
 image quick button load insensitive = im.MatrixColor("gui/quickmenu/loadepta.png",im.matrix.colorize("#444", "#000"))
 
 #спизженный с сп глоссарий ёпта
-image quick button knigger idle = im.MatrixColor("gui/quickmenu/kniggaepta.png",im.matrix.colorize("#fff", "#000"))
+image quick button knigger idle = im.MatrixColor("gui/quickmenu/kniggaepta.png",im.matrix.colorize("#fff", "#fff"))
 
-image quick button knigger hover = im.MatrixColor("gui/quickmenu/kniggaepta.png",im.matrix.colorize("#f00", "#000"))
+image quick button knigger hover = im.MatrixColor("gui/quickmenu/kniggaepta.png",im.matrix.colorize("#f00", "#f00"))
 
 image quick button knigger insensitive = im.MatrixColor("gui/quickmenu/kniggaepta.png",im.matrix.colorize("#444", "#000"))
 
 #нутупанастройки свэг 228
-image quick button options idle = im.MatrixColor("gui/quickmenu/optionsepta.png",im.matrix.colorize("#fff", "#000"))
+image quick button options idle = im.MatrixColor("gui/quickmenu/optionsepta.png",im.matrix.colorize("#fff", "#fff"))
 
-image quick button options hover = im.MatrixColor("gui/quickmenu/optionsepta.png",im.matrix.colorize("#f00", "#000"))
+image quick button options hover = im.MatrixColor("gui/quickmenu/optionsepta.png",im.matrix.colorize("#f00", "#f00"))
 
 image quick button options insensitive = im.MatrixColor("gui/quickmenu/optionsepta.png",im.matrix.colorize("#444", "#000"))
 
@@ -54,8 +77,8 @@ init 100:
 
         if quick_menu:
             vbox:
-                xalign 1.0
-                yalign 1.0
+                #xalign 0.5
+                #yalign 1.0
 
                 if (tt.value != ""):
                     text tt.value
@@ -66,8 +89,8 @@ init 100:
                         idle "quick button story idle"
                         hover "quick button story hover"
                         insensitive "quick button story insensitive"
-                        hovered tt.Action("Показать историю")
-                        at buttonZoom
+                        #hovered tt.Action("Показать историю")
+                        at buttonStory
                         action ShowMenu('history')
 
                     #пролетаю пау пау пау
@@ -75,8 +98,8 @@ init 100:
                         idle "quick button skip idle"
                         hover "quick button skip hover"
                         insensitive "quick button skip insensitive"
-                        hovered tt.Action("Пропустить")
-                        at buttonZoom
+                        #hovered tt.Action("Пропустить")
+                        at buttonSkip
                         action Skip() alternate Skip(fast=True, confirm=True)
 
                     #сохраниться - ебаться в рот
@@ -84,8 +107,8 @@ init 100:
                         idle "quick button save idle"
                         hover "quick button save hover"
                         insensitive "quick button save insensitive"
-                        hovered tt.Action("Сохранить")
-                        at buttonZoom
+                        #hovered tt.Action("Сохранить")
+                        at buttonSave
                         action ShowMenu('save')
 
                     #загрузиться - ебаться в сраку
@@ -93,8 +116,8 @@ init 100:
                         idle "quick button load idle"
                         hover "quick button load hover"
                         insensitive "quick button load insensitive"
-                        hovered tt.Action("Загрузить")
-                        at buttonZoom
+                        #hovered tt.Action("Загрузить")
+                        at buttonLoad
                         action ShowMenu('load')
 
                     #спизженный напрочь у сп глоссарий
@@ -102,8 +125,8 @@ init 100:
                         idle "quick button knigger idle"
                         hover "quick button knigger hover"
                         insensitive "quick button knigger insensitive"
-                        hovered tt.Action("Словарь")
-                        at buttonZoom
+                        #hovered tt.Action("Словарь")
+                        at buttonKnigga
                         action ShowMenu('glossary')
 
                     #настройи (чёреально?)
@@ -111,6 +134,6 @@ init 100:
                         idle "quick button options idle"
                         hover "quick button options hover"
                         insensitive "quick button options insensitive"
-                        hovered tt.Action("Настройки")
-                        at buttonZoom
+                        #hovered tt.Action("Настройки")
+                        at buttonOptions
                         action ShowMenu('preferences')
