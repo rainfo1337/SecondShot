@@ -879,19 +879,17 @@ screen glossary:
     tag menu
     
     predict False
-
+    
     use game_menu(_("Словарь"), scroll=("vpgrid" if gui.history_height else "viewport")):
         if glossary_list:
             for gl_name, gl_desc in glossary_list.items():
-                vbox:
-                    spacing 15
                 hbox:
-                    text gl_name
-                    null width 25
-                    text gl_desc
+                    text gl_name size 35 xpos 50 outlines [(4, "#4b4248", 0, 0), (2, "#4b4248", 2, 2)]
+                    null width 35
+                    text gl_desc size 25 xpos 50 ypos 10 outlines [(3, "#4b4248", 0, 0), (1, "#4b4248", 1, 1)]
         else:
             vbox:
-                text "Словарь пуст."
+                text "Словарь пуст." size 30 xpos 350   
 
 # так добавляются слова в словарь / $ glossary_list.update({"Булки": "Мягкие и хрустящие, а главное - французские и хороши к чаю"})
 
