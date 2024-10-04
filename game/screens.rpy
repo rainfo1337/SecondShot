@@ -886,7 +886,8 @@ screen glossary:
                 hbox:
                     text gl_name size 35 xpos 50 outlines [(4, "#4b4248", 0, 0), (2, "#4b4248", 2, 2)]
                     null width 35
-                    text gl_desc size 25 xpos 50 ypos 10 outlines [(3, "#4b4248", 0, 0), (1, "#4b4248", 1, 1)]
+                vbox:
+                    text gl_desc size 25 xpos 60 ypos 10 outlines [(3, "#4b4248", 0, 0), (1, "#4b4248", 1, 1)]
         else:
             vbox:
                 text "Словарь пуст." size 30 xpos 350   
