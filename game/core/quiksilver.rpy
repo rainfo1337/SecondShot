@@ -1,29 +1,29 @@
 # "position very interesting position" - levi rozeman
 init:
     transform buttonStory:
-        zoom 0.2
-        xpos 300
-        ypos 675
+        zoom 0.15
+        xpos 450
+        ypos 685
     transform buttonSkip:
-        zoom 0.2
-        xpos 400
-        ypos 675
-    transform buttonSave:
-        zoom 0.2
+        zoom 0.15
         xpos 500
-        ypos 675
+        ypos 685
+    transform buttonSave:
+        zoom 0.15
+        xpos 550
+        ypos 685
     transform buttonLoad:
-        zoom 0.2
+        zoom 0.15
         xpos 600
-        ypos 675
+        ypos 685
     transform buttonKnigga:
-        zoom 0.2
-        xpos 700
-        ypos 675
+        zoom 0.15
+        xpos 650
+        ypos 685
     transform buttonOptions:
-        zoom 0.2
-        xpos 800
-        ypos 675
+        zoom 0.15
+        xpos 700
+        ypos 685
 
 #трусториёбан
 image quick button story idle = im.MatrixColor("gui/quickmenu/truestoryepta.png",im.matrix.colorize("#fff", "#000"))
