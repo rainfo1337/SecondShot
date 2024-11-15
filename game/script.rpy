@@ -1,21 +1,8 @@
 label start:
     "Пися попа бобра"
-    na "ракета бомба петарда"
-    # call prologue
-    # call d0
-    # call d1
-    # if wanted.scale == 0:
-    #     call neutral
-    # else:
-    #     call d2
-    #     call d3
-    #     call d4
-    #     call d5
-    #     call d6
-    #     call d7
-    #     call d8
-    #     if wanted.scale >= 3:
-    #         call bad
-    #     else:
-    #         call good
+    $ glossary_list.update({"{b}Булки{/b} -- мягкие и хрустящие, а главное -- французские и хороши к чаю."})
+    na "ракета бомба петарда {a=showmenu:glossary}булка{/a}"
+    $ glossary_list.update({"{b}Жопа{/b} -- то, куда я попаду если не напишу курсовую за месяц."})
+    "хуй {a=showmenu:glossary}жопа{/a} сковорода"
+    "какого хуя блять это гамно неровно распологается? я понимаю что дело в длине слова но надо как-то это исправить"
     return
