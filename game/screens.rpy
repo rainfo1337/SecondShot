@@ -339,14 +339,14 @@ screen navigation():
             textbutton _("Загрузить") action [ShowMenu("load"), SensitiveIf(renpy.get_screen("load") == None)]
 
             if not main_menu:
-                textbutton _("Словарь") action [ShowMenu("glossary"), SensitiveIf(renpy.get_screen("пдщыыфкн") == None)]
+                textbutton _("Словарь") action [ShowMenu("glossary"), SensitiveIf(renpy.get_screen("glossary") == None)]
                 textbutton _("Главное меню") action MainMenu()
 
 
             textbutton _("Настройки") action [ShowMenu("preferences"), SensitiveIf(renpy.get_screen("preferences") == None)]
 
-            if renpy.variant("pc"):
-                textbutton _("Выйти") action Quit(confirm=not main_menu)
+            # if renpy.variant("pc"):
+            textbutton _("Выйти") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -381,7 +381,7 @@ screen main_menu():
             text "[config.name!t]":
                 style "main_menu_title"
 
-            text "[config.version]":
+            text "v[config.version]":
                 style "main_menu_version"
 
     add "menu_fade"
@@ -873,35 +873,35 @@ style value_text:
     outlines []
     yalign 0.65
 
+default glossary_list = list()
 
-screen glossary:
+init python:
+    class GlossaryItem:
+        def __init__(self, name: str, description: str):
+            self.name = name
+            self.description = description
+
+screen glossary():
     tag menu
-    
     predict False
 
-    use game_menu(_("Словарь"), scroll=("vpgrid" if gui.glossary_height else "viewport")):
+    use game_menu(_("Словарь"), scroll=("vpgrid" if gui.history_height else "viewport")):
+        style_prefix "history"
 
-        # if glossary_list:
-        #     не ебу пускай главное работает
-        # else:
-            vbox:
-                text "Словарь пуст." size 30 xpos 350  
+        for gl in glossary_list:
+            window:
+                has fixed:
+                    yfit True
 
-# так ПО ИДЕЕ ДОЛЖНЫ добавляться слова в словарь: / $ glossary_list.update({"{b}Булки{/b} -- мягкие и хрустящие, а главное -- французские и хороши к чаю."}) / должна выглядеть как реплика narrator в истории
+                label gl.name:
+                    style "history_name"
+                    substitute False
 
-default glossary_list = dict()
-define gui.glossary_height = None
-define gui.glossary_allow_tags = set()
-style glossary_window is empty
-style glossary_name is gui_label
-style glossary_name_text is gui_label_text
-style glossary_text is gui_text
-style glossary_label is gui_label
-style glossary_label_text is gui_label_text
+                text gl.description:
+                    substitute False
 
-style glossary_window:
-    xfill True
-    ysize gui.history_height
+        if not glossary_list:
+            label _("Словарь пуст.")
 
 screen history():
     tag menu
@@ -909,16 +909,18 @@ screen history():
     predict False
 
     use game_menu(_("История"), scroll=("vpgrid" if gui.history_height else "viewport")):
-        
         style_prefix "history"
+
         for h in _history_list:
             window:
                 has fixed:
                     yfit True
+
                 if h.who:
                     label h.who:
                         style "history_name"
                         substitute False
+
                         if "color" in h.who_args:
                             text_color h.who_args["color"]
 
@@ -927,8 +929,7 @@ screen history():
                     substitute False
 
         if not _history_list:
-            vbox:
-                text "История пуста." size 30 xpos 350  
+            label _("История пуста.")
 
 define gui.history_allow_tags = set()
 
