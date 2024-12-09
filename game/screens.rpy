@@ -333,7 +333,7 @@ screen navigation():
                 textbutton _("История") action [ShowMenu("history"), SensitiveIf(renpy.get_screen("history") == None)]
             if not main_menu:
                 textbutton _("Словарь") action [ShowMenu("glossary"), SensitiveIf(renpy.get_screen("glossary") == None)]
-            # if inv_variable == True:
+            if inv_variable == 1:
                 textbutton _("Разбор") action [ShowMenu("investigation"), SensitiveIf(renpy.get_screen("investigation") == None)]
                 textbutton _("Сохранить") action [ShowMenu("save"), SensitiveIf(renpy.get_screen("save") == None)]
             textbutton _("Загрузить") action [ShowMenu("load"), SensitiveIf(renpy.get_screen("load") == None)]
