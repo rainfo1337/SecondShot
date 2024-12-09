@@ -299,10 +299,10 @@ screen quick_menu():
             yalign 0.995
 
             textbutton _("История") action ShowMenu('history')
+            textbutton _("Словарь") action ShowMenu('glossary')
             textbutton _("Пропуск") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Сохранить") action ShowMenu('save')
             textbutton _("Загрузить") action ShowMenu('load')
-            textbutton _("Словарь") action ShowMenu('glossary')
             textbutton _("Настройки") action ShowMenu('preferences')
 
 default quick_menu = True
@@ -329,23 +329,17 @@ screen navigation():
 
             if main_menu:
                 textbutton _("Новая игра") action Start()
-
             else:
-
                 textbutton _("История") action [ShowMenu("history"), SensitiveIf(renpy.get_screen("history") == None)]
-
-                textbutton _("Сохранить") action [ShowMenu("save"), SensitiveIf(renpy.get_screen("save") == None)]
-
-            textbutton _("Загрузить") action [ShowMenu("load"), SensitiveIf(renpy.get_screen("load") == None)]
-
             if not main_menu:
                 textbutton _("Словарь") action [ShowMenu("glossary"), SensitiveIf(renpy.get_screen("glossary") == None)]
-                textbutton _("Главное меню") action MainMenu()
-
-
+            # if inv_variable == True:
+                textbutton _("Разбор") action [ShowMenu("investigation"), SensitiveIf(renpy.get_screen("investigation") == None)]
+                textbutton _("Сохранить") action [ShowMenu("save"), SensitiveIf(renpy.get_screen("save") == None)]
+            textbutton _("Загрузить") action [ShowMenu("load"), SensitiveIf(renpy.get_screen("load") == None)]
             textbutton _("Настройки") action [ShowMenu("preferences"), SensitiveIf(renpy.get_screen("preferences") == None)]
-
-            # if renpy.variant("pc"):
+            if not main_menu:
+                textbutton _("Главное меню") action MainMenu()
             textbutton _("Выйти") action Quit(confirm=not main_menu)
 
 
@@ -874,12 +868,26 @@ style value_text:
     yalign 0.65
 
 default glossary_list = list()
+define inv_progress = None
 
 init python:
     class GlossaryItem:
         def __init__(self, name: str, description: str):
             self.name = name
             self.description = description
+
+screen investigation():
+    tag menu
+    predict False
+    use game_menu(_("Разбор"), scroll=("vpgrid" if gui.history_height else "viewport")):
+        style_prefix "history"
+        window:           
+            if inv_progress == 1:
+                vbox:
+                    text "Лепер пидорас" size 30 xpos 250
+            else:
+                vbox:
+                    text "Разбор ещё не начат." size 30 xpos 250
 
 screen glossary():
     tag menu

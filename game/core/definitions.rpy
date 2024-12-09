@@ -2,7 +2,7 @@ define config.developer = True
 python early:
     import singleton
     me = singleton.SingleInstance()
-
+default inv_variable = False
 init -3 python:
     def dsp(orig_val):
         ceil = not isinstance(orig_val, float)
