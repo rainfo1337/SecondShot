@@ -1,18 +1,8 @@
 define config.developer = True
+
 python early:
     import singleton
     me = singleton.SingleInstance()
-default inv_variable = False
-init -3 python:
-    def dsp(orig_val):
-        ceil = not isinstance(orig_val, float)
-        dsp_scale = config.screen_width / 1280.0 
-        if ceil: return math.ceil(orig_val * dsp_scale)
-        return type(orig_val)(orig_val * dsp_scale)
-    renpy.pure(dsp)
-    def dsr(path):
-        img_bounds = renpy.image_size(path)
-        return Transform(path, size=(dsp(img_bounds[0]), dsp(img_bounds[1])))
 
 define config.gestures = { "n" : 'game_menu', "s" : "hide_windows", "e" : 'toggle_skip', "w" : "history" }
 

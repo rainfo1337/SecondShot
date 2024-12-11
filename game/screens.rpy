@@ -296,14 +296,17 @@ screen quick_menu():
             style_prefix "quick"
 
             xalign 0.5
-            yalign 0.995
+            yalign 0.993
+            spacing 12
 
-            textbutton _("История") action ShowMenu('history')
-            textbutton _("Словарь") action ShowMenu('glossary')
-            textbutton _("Пропуск") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Сохранить") action ShowMenu('save')
-            textbutton _("Загрузить") action ShowMenu('load')
-            textbutton _("Настройки") action ShowMenu('preferences')
+            textbutton _("") action ShowMenu('history') # Feather, U+e939
+            textbutton _("") action ShowMenu('glossary') # Feather, U+e923
+            if inv_variable:
+                textbutton _("") action ShowMenu('investigation') # Feather, U+e958
+            textbutton _("") action Skip() alternate Skip(fast=True, confirm=True) # Feather, U+e934
+            textbutton _("") action ShowMenu('save') # Feather, U+e955
+            textbutton _("") action ShowMenu('load') # Feather, U+e9ef
+            textbutton _("") action ShowMenu('preferences') # Feather, U+e9c4
 
 default quick_menu = True
 
@@ -333,9 +336,9 @@ screen navigation():
                 textbutton _("История") action [ShowMenu("history"), SensitiveIf(renpy.get_screen("history") == None)]
             if not main_menu:
                 textbutton _("Словарь") action [ShowMenu("glossary"), SensitiveIf(renpy.get_screen("glossary") == None)]
-            if inv_variable == 1:
+            if inv_variable:
                 textbutton _("Разбор") action [ShowMenu("investigation"), SensitiveIf(renpy.get_screen("investigation") == None)]
-                textbutton _("Сохранить") action [ShowMenu("save"), SensitiveIf(renpy.get_screen("save") == None)]
+            textbutton _("Сохранить") action [ShowMenu("save"), SensitiveIf(renpy.get_screen("save") == None)]
             textbutton _("Загрузить") action [ShowMenu("load"), SensitiveIf(renpy.get_screen("load") == None)]
             textbutton _("Настройки") action [ShowMenu("preferences"), SensitiveIf(renpy.get_screen("preferences") == None)]
             if not main_menu:
@@ -561,7 +564,7 @@ screen load():
     use file_slots(_("Загрузить"))
 
 screen file_slots(title):
-    default page_name_value = FilePageNameInputValue()
+    default page_name_value = FilePageNameInputValue(pattern=_("Страница {}"))
     use game_menu(title):
         fixed:
             order_reverse True
@@ -584,7 +587,7 @@ screen file_slots(title):
 
                         add FileScreenshot(slot) xalign 0.5
 
-                        text FileTime(slot, format=_("{#file_time}%d.%m.%Y, %H:%M:%S"), empty=_("empty slot")):
+                        text FileTime(slot, format=_("{#file_time}%d %b %Y в %H:%M"), empty=_("пустой слот")):
                             style "slot_time_text"
 
                         text FileSaveName(slot):
@@ -641,35 +644,6 @@ style slot_button_text:
     properties gui.button_text_properties("slot_button")
     color "#666"
     outlines []
-
-screen viewframe_options(title):
-
-    style_prefix "viewframe"
-
-    add "gui/overlay/confirm.png"
-
-    frame:
-
-        vbox:
-            xalign .5
-            yalign .5
-            spacing 2
-
-            label title
-
-            null height 10
-
-            transclude
-
-style viewframe_frame is confirm_frame
-style viewframe_label is confirm_prompt:
-    xalign 0.5
-style viewframe_label_text is confirm_prompt_text
-style viewframe_button is confirm_button
-style viewframe_button_text is confirm_button_text
-style viewframe_text is confirm_prompt_text:
-    size 20
-    yalign 0.7
 
 default preferences.afm_enable = False
 
@@ -868,26 +842,34 @@ style value_text:
     yalign 0.65
 
 default glossary_list = list()
-define inv_progress = None
 
 init python:
     class GlossaryItem:
         def __init__(self, name: str, description: str):
+            if len(name) > 7:
+                raise ValueError("Искомый термин должен быть короче 7 символов.")
             self.name = name
             self.description = description
+
+default inv_variable = 0
 
 screen investigation():
     tag menu
     predict False
+
     use game_menu(_("Разбор"), scroll=("vpgrid" if gui.history_height else "viewport")):
         style_prefix "history"
-        window:           
-            if inv_progress == 1:
-                vbox:
-                    text "Лепер пидорас" size 30 xpos 250
+
+        window:
+            if inv_variable == 1:
+                # vbox:
+                label _("Лепер пидорас")
+            elif inv_variable == 2:
+                # vbox:
+                label _("А тролль – молодец")
             else:
-                vbox:
-                    text "Разбор ещё не начат." size 30 xpos 250
+                # vbox:
+                label _("Разбор ещё не начат.")
 
 screen glossary():
     tag menu

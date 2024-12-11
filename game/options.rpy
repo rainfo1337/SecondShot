@@ -1,4 +1,4 @@
-﻿define config.name = "Дубль два"
+define config.name = "Дубль два"
 define gui.show_name = True
 define config.version = "0.01pa"
 define gui.about = _("Описание\nСледующая строчка")
@@ -31,14 +31,17 @@ define config.predict_statements = 50
 define config.menu_clear_layers = ["front"]
 define config.gl_test_image = "white"
 
+if renpy.version_tuple >= (8, 1, 0, 23051307):
+    define config.quadratic_volumes = True
+
 init python:
-    if len(renpy.loadsave.location.locations) > 1: del(renpy.loadsave.location.locations[1])
     renpy.game.preferences.pad_enabled = False
     def replace_text(s):
-        s = s.replace('--', u'\u2014')
-        s = s.replace(' - ', u'\u2014')
+        # s = s.replace('--', u'\u2014')
+        s = s.replace(' - ', " – ")
         return s
     config.replace_text = replace_text
+
     def game_menu_check():
         if quick_menu: renpy.call_in_new_context('_game_menu')
 
