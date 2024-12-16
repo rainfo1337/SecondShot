@@ -338,7 +338,8 @@ screen navigation():
                 textbutton _("Словарь") action [ShowMenu("glossary"), SensitiveIf(renpy.get_screen("glossary") == None)]
             if inv_variable:
                 textbutton _("Разбор") action [ShowMenu("investigation"), SensitiveIf(renpy.get_screen("investigation") == None)]
-            textbutton _("Сохранить") action [ShowMenu("save"), SensitiveIf(renpy.get_screen("save") == None)]
+            if not main_menu:
+                textbutton _("Сохранить") action [ShowMenu("save"), SensitiveIf(renpy.get_screen("save") == None)]
             textbutton _("Загрузить") action [ShowMenu("load"), SensitiveIf(renpy.get_screen("load") == None)]
             textbutton _("Настройки") action [ShowMenu("preferences"), SensitiveIf(renpy.get_screen("preferences") == None)]
             if not main_menu:

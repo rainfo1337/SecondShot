@@ -31,8 +31,8 @@ define config.predict_statements = 50
 define config.menu_clear_layers = ["front"]
 define config.gl_test_image = "white"
 
-if renpy.version_tuple >= (8, 1, 0, 23051307):
-    define config.quadratic_volumes = True
+# if renpy.version_tuple >= (8, 1, 0, 23051307):
+#     define config.quadratic_volumes = True
 
 init python:
     renpy.game.preferences.pad_enabled = False
