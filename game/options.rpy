@@ -1,6 +1,6 @@
 define config.name = "Дубль два"
 define gui.show_name = True
-define config.version = "0.01pa"
+define config.version = "v0.01pa"
 define gui.about = _("Описание\nСледующая строчка")
 define build.name = "secondshotru"
 define config.has_sound = True

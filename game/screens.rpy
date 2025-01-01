@@ -379,7 +379,7 @@ screen main_menu():
             text "[config.name!t]":
                 style "main_menu_title"
 
-            text "v[config.version]":
+            text "[config.version]":
                 style "main_menu_version"
 
     add "menu_fade"

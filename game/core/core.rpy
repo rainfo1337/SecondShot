@@ -69,7 +69,7 @@ image menu_art_y:
     "gui/menu_art_y.png"
     xcenter 750
     ycenter 695
-    zoom 1.12
+    zoom 0.56
 
 image menu_nav:
     "gui/overlay/main_menu.png"
