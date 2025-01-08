@@ -337,7 +337,7 @@ screen navigation():
             if not main_menu:
                 textbutton _("Словарь") action [ShowMenu("glossary"), SensitiveIf(renpy.get_screen("glossary") == None)]
             if inv_variable:
-                textbutton _("Разбор") action [ShowMenu("investigation"), SensitiveIf(renpy.get_screen("investigation") == None)]
+                textbutton _("Дневник") action [ShowMenu("podmost"), SensitiveIf(renpy.get_screen("podmost") == None)]
             if not main_menu:
                 textbutton _("Сохранить") action [ShowMenu("save"), SensitiveIf(renpy.get_screen("save") == None)]
             textbutton _("Загрузить") action [ShowMenu("load"), SensitiveIf(renpy.get_screen("load") == None)]
@@ -921,6 +921,26 @@ screen history():
 
         if not _history_list:
             label _("История пуста.")
+
+define podmost_list = dict()
+
+screen podmost():
+    tag menu
+
+    predict False
+
+    use game_menu(_("Дневник"), scroll=("vpgrid" if gui.history_height else "viewport")):
+        if podmost_list:
+            for pd_text in glossary_list.items():
+                vbox:
+                    spacing 15
+                hbox:
+                    text pd_text
+                    null width 25
+        else:
+            vbox:
+                text "Дневник пуст."
+# так добавляются слова в словарь / $ podmost_list.update({"Вот тут ставишь пробел": "Моего батю замочили в кафе там-то там-то, зацепки такие-то такие-то."})
 
 define gui.history_allow_tags = set()
 
