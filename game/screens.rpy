@@ -931,7 +931,7 @@ screen podmost():
 
     use game_menu(_("Дневник"), scroll=("vpgrid" if gui.history_height else "viewport")):
         if podmost_list:
-            for pd_text in glossary_list.items():
+            for pd_filler, pd_text in podmost_list.items():
                 vbox:
                     spacing 15
                 hbox:
