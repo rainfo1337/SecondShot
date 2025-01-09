@@ -1,10 +1,9 @@
 label start:
     "Пися попа бобра"
-    $ podmost_list.update({" ": "Подмост Скейтбординг."})
     $ glossary_list.append(
         GlossaryItem("Булки", "Мягкие и хрустящие, а главное – французские и хороши к чаю.")
     )
-    na "ракета бомба петарда {a=showmenu:podmost}булка{/a}"
+    na "ракета бомба петарда {a=showmenu:glossary}булка{/a}"
     $ glossary_list.append(
         GlossaryItem("Жопа", "То, куда я попаду если не напишу курсовую за месяц.")
     )

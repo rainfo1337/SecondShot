@@ -399,7 +399,6 @@ default persistent.monika_back = None
 
 default anticheat = 0
 define config.mouse = None
-
 default allow_skipping = True
 default basedir = config.basedir
 default chapter = 0
