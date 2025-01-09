@@ -286,7 +286,7 @@ screen rigged_choice(items):
 
     timer 1.0/30.0 repeat True action Function(RigMouse)
 
-screen quick_menu():
+screen quick_menu(): #quiksilver.rpy кароче
 
     zorder 100
 
@@ -301,8 +301,7 @@ screen quick_menu():
 
             textbutton _("") action ShowMenu('history') # Feather, U+e939
             textbutton _("") action ShowMenu('glossary') # Feather, U+e923
-            if inv_variable:
-                textbutton _("") action ShowMenu('investigation') # Feather, U+e958
+            textbutton _("") action ShowMenu('podmost') # Feather, U+e958
             textbutton _("") action Skip() alternate Skip(fast=True, confirm=True) # Feather, U+e934
             textbutton _("") action ShowMenu('save') # Feather, U+e955
             textbutton _("") action ShowMenu('load') # Feather, U+e9ef
