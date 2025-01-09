@@ -588,7 +588,7 @@ screen file_slots(title):
 
                         add FileScreenshot(slot) xalign 0.5
 
-                        text FileTime(slot, format=_("{#file_time}%d %b %Y в %H:%M"), empty=_("пустой слот")):
+                        text FileTime(slot, format=_("{#file_time}%d.%m.%y, %H:%M:%S"), empty=_("пустой слот")):
                             style "slot_time_text"
 
                         text FileSaveName(slot):
